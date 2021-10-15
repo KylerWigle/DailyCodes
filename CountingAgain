@@ -1,0 +1,42 @@
+/*
+ * Program Name:     CountingTo10Again.java
+ * Purpose:			 Counting again
+ * Coder:            Kyler Wigle
+ * Date:             Oct 15, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class CountingTo10Again
+{
+
+	public static void main(String[] args)
+	{
+		Scanner scnr = new Scanner(System.in);
+		
+		// Count to 10 using a WHIL:E loop
+		System.out.println("Counting to 10 using a while loop...");
+		int count1 = 1;
+		
+		while (count1 <= 10)
+		{
+			System.out.println(count1++);
+		}
+		
+		System.out.println("Counting to 10 using a do while loop...");
+		int count2 = 1;
+		do
+		{
+			System.out.println(count2++);
+		} while (count2 <= 10);
+		
+		// Counting to 10 using a FOR loop
+		System.out.println("Counting to 10 using a for loop...");
+		for (int count3 = 1; count3 <= 10; count3++)
+		{
+			System.out.println(count3);
+		}
+	}
+
+}
