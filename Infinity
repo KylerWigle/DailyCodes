@@ -1,0 +1,26 @@
+/*
+ * Program Name:     InfinateForLoop.java
+ * Purpose:			 Infinate for loop!
+ * Coder:            Kyler Wigle
+ * Date:             Oct 15, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class InfinateForLoop
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		for(;;)
+		{
+			System.out.println("This is an infinate for loop!");
+		}
+
+	}
+
+}
