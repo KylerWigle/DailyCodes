@@ -1,0 +1,39 @@
+/*
+ * Program Name:     FactorFinder.java
+ * Purpose:			 Finds all factors of a while number entered by the user
+ * Coder:            Kyler Wigle
+ * Date:             Oct 15, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class FactorFinder
+{
+
+	public static void main(String[] args)
+	{
+		Scanner scnr = new Scanner(System.in);
+		
+		// Display Title
+		System.out.println("The Factor Finder!\n");
+		
+		// Ask the user to enter the number to find factors for
+		System.out.println("Enter a positive integer to find factors for: ");
+		int theNumber = scnr.nextInt();
+		
+		// For each integer between 1 and the user's number
+		for (int potentialFactor = 1; potentialFactor <= theNumber; potentialFactor++)
+		{
+			//if the integer is a factor of the users number
+			if (theNumber % potentialFactor == 0)
+			{
+				// Report the integer as a factor
+				System.out.printf("%d is a factor of %d\n", potentialFactor, theNumber);
+			}
+		}
+		
+
+	}
+
+}
