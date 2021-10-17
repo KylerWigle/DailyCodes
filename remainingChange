@@ -1,0 +1,52 @@
+import java.util.Scanner; 
+
+public class remainingChange
+   public static void main(String[] args) {
+      
+      Scanner scnr = new Scanner(System.in);
+      
+      int amount = scnr.nextInt();
+      int remaining = amount;
+      
+      int dollars = remaining / 100;
+      remaining = remaining % 100;
+      
+      int quarters = remaining / 25;
+      remaining = remaining % 25;
+      
+        int dimes = remaining / 10;
+      remaining = remaining % 10;
+      
+      int nickles = remaining / 5;
+      remaining = remaining % 5;
+      
+      int pennies = remaining;      
+      
+      if (dollars > 0)
+      {
+         System.out.println(dollars == 1 ? "1 Dollar" : dollars + " Dollars");
+      }
+      if (quarters > 0)
+      {
+         System.out.println(quarters == 1 ? "1 Quarter" : quarters + " Quarters");
+      }
+      if (dimes > 0)
+      {
+         System.out.println(dimes == 1 ? "1 Dime" : dimes + " Dimes");
+      }
+      if (nickles > 0)
+      {
+         System.out.println(nickles == 1 ? "1 Nickel" : nickles + " Nickels");
+      }
+      if (pennies > 0)
+      {
+         System.out.println(pennies == 1 ? "1 Penny" : pennies + " Pennies");
+      }
+      if (dollars == 0 && quarters == 0 && dimes == 0 && nickles == 0 && pennies == 0)
+      {
+         System.out.println("No change");
+      }
+      scnr.close();
+      
+   }
+}
