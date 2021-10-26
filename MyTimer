@@ -1,0 +1,44 @@
+/*
+ * Program Name:     MyTimer.java
+ * Purpose:			 Implements Count Down Timer in minutes and seconds.
+ * Coder:            Kyler Wigle
+ * Date:             Oct 26, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class MyTimer
+{
+
+	public static void main(String[] args) throws InterruptedException
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		// Display a title
+		System.out.println("My Timer Program");
+		System.out.print("----------------\n");  
+		
+		// Ask the user to input the number of minutes
+		System.out.print("Please enter number of minutes to time: ");
+		int totalMinutes = scnr.nextInt();
+		
+		// for each minute
+		for (int m = totalMinutes - 1; m >= 0; m--)
+		{
+			// Count down all the seconds
+			for (int s = 59; s >= 0; s--)
+			{
+				// Wait one Second
+				Thread.sleep(1000);
+		
+				System.out.printf("%d minutes, %d seconds\n", m, s);
+			}
+			
+			System.out.println("Times Up!");
+		}
+
+	}
+
+}
