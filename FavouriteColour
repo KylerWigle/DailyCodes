@@ -1,0 +1,78 @@
+/*
+ * Program Name:     FavoriteColor.java
+ * Purpose:			 Allows the user to select their favorite color from a menu
+ * Coder:            Kyler Wigle
+ * Date:             Nov 2, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class FavoriteColor
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		// Display a title
+		System.out.println("Whats your favourite colour?\n");
+		
+		// Set-up an array to hold all the colour choices
+		// String [] colourArray = new String[8];
+		/*colourArray[0] = "Violet";
+		colourArray[1] = "Red";
+		colourArray[2] = "Blue";
+		colourArray[3] = "Green";
+		colourArray[4] = "Grey";
+		colourArray[5] = "Black";
+		colourArray[6] = "Pink";
+		colourArray[7] = "Purple";
+		*/
+		String [] colourArray = {"Violet", "Red", "Green", "Grey", "Black", "Pink", "Purple"};
+		
+		
+		
+		// Display a menu of colours using the array
+		for (int i = 0; i < colourArray.length; i++)
+		{
+			System.out.printf("%d. %s\n", i+1, colourArray[i]);
+		}
+		
+		boolean validColour;
+		
+		int userIndex;
+		do
+		{
+			// Ask the user to select a colour
+			System.out.print("\nEnter the number of your choice: ");
+			userIndex = scnr.nextInt() -1;
+		
+			validColour = userIndex >= 0 && userIndex < colourArray.length;
+			if (!validColour)
+			{
+				System.out.printf("%d is invalid. Please enter a number between 0 and %d.\n",
+						userIndex+1, colourArray.length);
+			}
+					
+		}while(!validColour);
+		
+		//Tell The user what their favourite colour is
+		System.out.printf("\nYour favourite colour is %s.\n", colourArray[userIndex]);
+		
+		// Have the computer pick its favorite colour
+		// pick random index from an array using this formula
+		int computerIndex = (int)(Math.random() * colourArray.length);
+		
+		System.out.printf("\nThe computers favourite colour is %s.\n", colourArray[computerIndex]);
+		
+		if(userIndex == computerIndex)
+		{
+			System.out.println("\nLook at that! you and the compuer have the same favourite colour!");
+		}
+		scnr.close();
+
+	}
+
+}
