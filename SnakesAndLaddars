@@ -1,0 +1,95 @@
+/*
+ * Program Name:     KW_SnakesAndLadders.java
+ * Purpose:			 This is a game of snakes and Laddars
+ * Coder:            Kyler Wigle
+ * Date:             Nov 9, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class KW_SnakesAndLadders
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		// Display a title
+		System.out.println("Kyler's Snakes & Ladders Simulator");
+		System.out.println("This is a simulator for a basic version of Snakes & Ladders.");
+		System.out.println("Move your token from square 0 to square 40 to win the game,");
+		System.out.println("but watch out for those snakes!");
+		
+		// Variables
+		
+		int playerSquare = 0;
+		int roll = 0;
+		
+		// Roll The Dice
+		
+		 do 
+		 {
+			System.out.print("Enter a die roll from 1 to 6: ");
+			roll = scnr.nextInt();
+			boolean validRoll = roll > 0 && roll < 7;
+			
+			
+			
+		
+			if (playerSquare + roll > 40)
+			{
+				System.out.println("That roll was no good. You must land on square 40 exactly to win.");
+			}	
+
+			else if (!validRoll)
+			{
+				System.out.println("Invalid roll value! A roll must be 1, 2, 3, 4, 5 or 6.");
+			}
+			else
+			{
+				playerSquare += roll;
+			}
+			
+			// This switch will set the special spaces for the snakes and Ladders
+			
+			switch (playerSquare)
+			{
+			case 23:
+				System.out.println("Down a snake from square 23 to square 15.");
+				playerSquare = 15;
+				break;
+			case 32:
+				System.out.println("Down a snake from square 32 to square 10.");
+				playerSquare = 10;
+				break;
+			case 36:
+				System.out.println("Down a snake from square 36 to square 6.");
+				playerSquare = 6;
+				break;
+			case 4:
+				System.out.println("Up a ladder from square 4 to square 14.");
+				playerSquare = 14;
+				break;
+			case 8:
+				System.out.println("Up a ladder from square 8 to square 30.");
+				playerSquare = 30;
+				break;
+			case 19:
+				System.out.println("Up a ladder from square 19 to square 28.");
+				playerSquare = 28;
+				break;
+			}
+			
+			System.out.printf("You're on square %d\n", playerSquare);
+			
+			
+		 }while (playerSquare < 40);
+		 
+		 System.out.println("*** You just won Snakes & Ladders! ***");
+		
+		
+	}
+
+}
