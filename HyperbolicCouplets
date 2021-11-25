@@ -1,0 +1,85 @@
+/*
+ * Program Name:     KW_HyperbolicCouplets.java
+ * Purpose:			 Write a description
+ * Coder:            Kyler Wigle
+ * Date:             Nov 25, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class KW_HyperbolicCouplets
+{
+
+	/*
+	 *	Method Name:	main
+	 *  Purpose:		Replace
+	 *	Accepts:		
+	 * 	Returns:		void
+	*/
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		// Display a title
+		System.out.println("Kyler Wigle's Hyperbole Couplets program");
+		
+		// Creating arrays
+		
+		String[] adverbsArray = {"Attractively", "beautifully","bewitcheingly", "brilliantly", 
+				"charmingly","charmingly", "dazzlingly", "devilishly", "flashily", 
+				"glowingly"};
+		
+		String[] adjectivesArray = {"Adorable", "brainy", "bright", "cuddly", "cute", "delectable",
+				"delightful", "divine", "enjoyable", "enticing", "exquisite", "favorable"};
+		
+		// Get the amount of pairs
+		int numCouplets;
+		boolean validNum;
+	
+		do
+		{
+			System.out.print("How many couplets would you like to see? ");
+			numCouplets = scnr.nextInt();
+			
+			validNum = numCouplets >= 0 && numCouplets <= 30;
+			if (!validNum)
+			{
+				System.out.println("Invalid input. The number of couplets must be between 1 and 30.");
+			}
+		} while (!validNum);
+		
+		// Create pairs Array 
+		
+		String[] coupletsArray = new String[numCouplets];
+		
+		final int ADV_HIGH = 12;
+		final int ADV_LOW = 1;
+		final int ADJ_HIGH = 10;
+		final int ADJ_LOW = 1;
+		
+		for (int i = 0; i < coupletsArray.length; i++)
+		{
+	
+				int adverbsIndex = (int)(Math.random() * (ADV_HIGH - ADV_LOW) + ADV_LOW);
+				String adverb = adverbsArray[adverbsIndex];
+				
+				int adjectivesIndex = (int)(Math.random() * (ADJ_HIGH -  ADJ_LOW) +  ADJ_LOW);
+				String adjectives = adjectivesArray[adjectivesIndex];
+				
+				coupletsArray[i] = adverb + " " + adjectives;
+		}
+		
+		System.out.println("\nYour 8 randomly generated hyperbolic couplets candidates are: ");
+		
+		for (int i = 0; i < numCouplets; i++)
+		{
+			System.out.printf("%d. %s\n", i+1, coupletsArray[i]);
+		}
+
+		scnr.close();
+		
+		
+		}
+}
