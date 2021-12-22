@@ -1,0 +1,142 @@
+/*
+ * Program Name:     AstroSigns.java
+ * Purpose:			     This  program will take in your birthday and give back your astro sign.
+ * Coder:            Kyler Wigle
+ * Date:             Dec 21, 2021
+*/
+
+import java.util.*; // import Scanner class
+
+
+public class AstroSigns
+{
+
+	/*
+	 *	Method Name:	main
+	 *  Purpose:		Replace
+	 *	Accepts:		
+	 * 	Returns:		void
+	*/
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Scanner scnr = new Scanner(System.in);
+
+		// Display a title
+		System.out.println("Astrological Sign Finder");
+		
+		System.out.println("\nWhen were you born?\n");
+		
+		// Populate Arrays for months and days 
+		String[] months = {"Janurary", "February", "March", "April", "May", "June", "July", 
+				"August", "September", "October", "November", "December"};
+	
+		int[] days = new int[] {31, 29, 31, 30, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
+		
+		// Populate List of months
+		for (int i = 0; i < months.length; i++)	
+		{
+			if (i > 0 && i % 4 == 0)
+			{
+				System.out.println();
+			}
+			System.out.printf("%d. %s   ",i+1, months[i]);
+		}
+		System.out.println("\n");
+		
+		// Ask for birth month
+		boolean validMonth;
+		int month;
+		
+		do
+		{
+			System.out.print("Enter a month number (1-12): ");
+			month = scnr.nextInt();
+			validMonth = month >= 1 && month <= 12;
+
+			if(!validMonth)
+			{
+				System.out.print("Invalid month selected! Enter a month number (1-12): ");
+				month = scnr.nextInt();
+			}
+		}while(!validMonth);
+		
+		
+		// Ask for day
+		boolean validDay;
+		int day;
+		
+		do
+		{
+			System.out.print("Enter the day of the month (1-30): ");
+			day = scnr.nextInt();
+			int i = month;
+			validDay = day >= 1 && day <= days[i];
+			if(!validDay)
+			{
+				System.out.print("Invalid day of month entered! Enter a day (1-30): ");
+				day = scnr.nextInt();
+			}
+		}while(!validDay);
+		
+		System.out.println("\nThank you.\n");
+		
+		
+		// Print out birthday and sign
+		System.out.printf("You were born on %s %d.", months[month-1], day);
+		
+		String astro;
+		
+		if (month == 1 && day >= 20 && day <=31 || month == 2 && day >= 1 && day <= 18)
+		{
+			astro = "Aquarius";
+		}
+		else if (month == 2 && day >= 19 && day <= 29 || month == 3 && day >= 1 && day <= 20)
+		{
+			astro = "Pices";
+		}
+		else if (month == 3 && day >= 21 && day <=31 || month == 4 && day >= 1 && day <= 19)
+		{
+			astro = "Aries";
+		}
+		else if (month == 4 && day >= 20 && day <=30 || month == 5 && day >= 1 && day <= 20)
+		{
+			astro = "Taurus";
+		}
+		else if (month == 5 && day >= 21 && day <=31 || month == 6 && day >= 1 && day <= 21)
+		{
+			astro = "Gemini";
+		}
+		else if (month == 6 && day >= 22 && day <=30 || month == 7 && day >= 1 && day <= 22)
+		{
+			astro = "Cancer";
+		}
+		else if (month == 7 && day >= 23 && day <=31 || month == 8 && day >= 1 && day <= 22)
+		{
+			astro = "Leo";
+		}
+		else if (month == 8 && day >= 23 && day <=31 || month == 9 && day >= 1 && day <= 22)
+		{
+			astro = "Virgo";
+		}
+		else if (month == 9 && day >= 23 && day <=30 || month == 10 && day >= 1 && day <= 23)
+		{
+			astro = "Libra";
+		}
+		else if (month == 10 && day >= 24 && day <=31 || month == 11 && day >= 1 && day <= 21)
+		{
+			astro = "Scorpio";
+		}
+		else if (month == 11 && day >= 22 && day <=30 || month == 12 && day >= 1 && day <= 21)
+		{
+			astro = "Sagittarius";
+		}
+		else 
+		{
+			astro = "Capricorn";
+		}
+		
+		System.out.printf("\nYour astrological sign is %s.", astro);
+	}
+}
